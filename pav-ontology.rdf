@@ -229,7 +229,10 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
     <!-- http://purl.org/dc/terms/hasVersion -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/hasVersion"/>
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/hasVersion">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">dcterms:hasVersion</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
@@ -539,6 +542,7 @@ Note that it might be confusing to indicate pav:previousVersion from a resource 
         <rdfs:label xml:lang="en">Previous version</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://purl.org/pav/derivedFrom"/>
         <rdfs:seeAlso rdf:resource="http://purl.org/pav/hasVersion"/>
+        <rdfs:seeAlso rdf:resource="http://purl.org/pav/version"/>
     </owl:ObjectProperty>
     
 
@@ -905,143 +909,13 @@ The value is of type xsd:dateTime, for instance &quot;2013-03-26T14:49:00+01:00&
 
     <owl:DatatypeProperty rdf:about="http://purl.org/pav/version">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The version number of a resource. This is a freetext string, typical values are &quot;1.5&quot; or &quot;21&quot;. The URI identifying the previous version can be provided using prov:previousVersion.
+
+This property is normally used in a functional way, although PAV does not formally restrict this.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/pav/"/>
+        <rdfs:label xml:lang="en">Version</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.org/pav/previousVersion"/>
     </owl:DatatypeProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Person -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Person"/>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/Person -->
-
-    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://orcid.org/0000-0001-6938-0820 -->
-
-    <owl:NamedIndividual rdf:about="http://orcid.org/0000-0001-6938-0820">
-        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:label>Khalid Belhajjame</rdfs:label>
-        <foaf:name>Khalid Belhajjame</foaf:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://orcid.org/0000-0001-9842-9718 -->
-
-    <owl:NamedIndividual rdf:about="http://orcid.org/0000-0001-9842-9718">
-        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Person"/>
-        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <owl:sameAs rdf:resource="http://soiland-reyes.com/stian/#me"/>
-        <rdfs:label>Stian Soiland-Reyes</rdfs:label>
-        <foaf:name>Stian Soiland-Reyes</foaf:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://soiland-reyes.com/stian/#me -->
-
-    <owl:NamedIndividual rdf:about="http://soiland-reyes.com/stian/#me"/>
-    
-
-
-    <!-- http://orcid.org/0000-0002-0643-3144 -->
-
-    <owl:NamedIndividual rdf:about="http://orcid.org/0000-0002-0643-3144">
-        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:label>Simon Jupp</rdfs:label>
-        <foaf:name>Simon Jupp</foaf:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://orcid.org/0000-0002-5156-2703 -->
-
-    <owl:NamedIndividual rdf:about="http://orcid.org/0000-0002-5156-2703">
-        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Person"/>
-        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <owl:sameAs rdf:resource="http://www.hcklab.org/foaf.rdf#me"/>
-        <rdfs:label>Paolo Ciccarese</rdfs:label>
-        <foaf:name>Paolo Ciccarese</foaf:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.hcklab.org/foaf.rdf#me -->
-
-    <owl:NamedIndividual rdf:about="http://www.hcklab.org/foaf.rdf#me"/>
-    
-
-
-    <!-- http://orcid.org/0000-0002-5711-4872 -->
-
-    <owl:NamedIndividual rdf:about="http://orcid.org/0000-0002-5711-4872">
-        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:label>Alasdair J G Gray</rdfs:label>
-        <foaf:name>Alasdair J G Gray</foaf:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/pav/ -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/pav/">
-        <dcterms:contributor rdf:resource="http://orcid.org/0000-0001-6938-0820"/>
-        <dcterms:contributor rdf:resource="http://orcid.org/0000-0002-0643-3144"/>
-        <dcterms:contributor rdf:resource="http://orcid.org/0000-0002-5711-4872"/>
-        <dcterms:contributor rdf:resource="http://www.paolociccarese.info/foaf.rdf#marco-ocana"/>
-        <dcterms:creator rdf:resource="http://orcid.org/0000-0001-9842-9718"/>
-        <dcterms:creator rdf:resource="http://orcid.org/0000-0002-5156-2703"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://soiland-reyes.com/stian/#me -->
-
-    <owl:NamedIndividual rdf:about="http://soiland-reyes.com/stian/#me"/>
-    
-
-
-    <!-- http://www.hcklab.org/foaf.rdf#me -->
-
-    <owl:NamedIndividual rdf:about="http://www.hcklab.org/foaf.rdf#me"/>
-    
-
-
-    <!-- http://www.paolociccarese.info/foaf.rdf#marco-ocana -->
-
-    <owl:NamedIndividual rdf:about="http://www.paolociccarese.info/foaf.rdf#marco-ocana">
-        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Person"/>
-        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:label>Marco Ocana</rdfs:label>
-        <foaf:name>Marco Ocana</foaf:name>
-    </owl:NamedIndividual>
     
 
 
