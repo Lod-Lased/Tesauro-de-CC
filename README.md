@@ -73,6 +73,6 @@ O desenvolvimento deste tesauro se baseia nas seguintes tecnologias e padrões:
 Você também pode abrir uma Issue para relatar um problema ou sugerir uma melhoria.
 
 ## 📜 Licença
-Este projeto possui a licença do .
+Este projeto possui a licença do [MIT](https://choosealicense.com/licenses/mit/).
 
 Última release do projeto: https://github.com/Load-Lased/Tesauro-de-CC/releases
