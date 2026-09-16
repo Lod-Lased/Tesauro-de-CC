@@ -88,6 +88,23 @@ GROUP BY ?ontology
 ```
 > A pesquisa acima mostrará os contribuintes do Tesauro de Ciência da Computação
 
+```sparql
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sbc: <http://lodlased.unicentro.br/2017/DiretrizesSBC#>
+
+SELECT ?axisLabel ?contentLabel
+WHERE {
+  ?axis sbc:temCompetenciaEixo ?axisCompetence .
+  ?axisCompetence sbc:temCompetenciaDerivada ?derivedCompetence .
+  ?derivedCompetence sbc:temConteudo ?content .
+  ?axis skos:prefLabel ?axisLabel .
+  ?content skos:prefLabel ?contentLabel .
+  FILTER(lang(?axisLabel) = "pt" && lang(?contentLabel) = "pt")
+}
+ORDER BY ?axisLabel ?contentLabel
+```
+> A pesquisa acima exibirá para cada eixo quais conteúdos estão associados a ele
+
 ## 🛠️ Tecnologias Utilizadas
 
 O desenvolvimento deste tesauro se baseia nas seguintes tecnologias e padrões:
